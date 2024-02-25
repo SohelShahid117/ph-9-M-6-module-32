@@ -228,3 +228,9 @@ if (x) {
 } else {
     console.log(`${x} is falsy value`)
 }
+
+
+
+
+32-4 Double Equal (==) Vs Triple Equal (===), Implicit Conversion:
+1.
