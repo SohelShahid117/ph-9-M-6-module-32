@@ -1,1 +1,3 @@
 Strive-
+explicit-
+implicit-
