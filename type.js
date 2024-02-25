@@ -1,6 +1,4 @@
-*********************************summary-ph-9-M-6-Module 32:Understand Common JavaScript Concepts*********************************
-32-1 Module Overview, Primitive And Non-Primitive Data Type:
-1.
+// 32-1 Module Overview, Primitive And Non-Primitive Data Type
 // JS is a dynamic type programming language
 
 const a = 5;
@@ -39,6 +37,4 @@ console.log(p, q)
 
 
 
-
-32-2 Null Vs Undefined, Different Ways You Will Get Undefined
-1.
+// 32-2 Null Vs Undefined, Different Ways You Will Get Undefined
