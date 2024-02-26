@@ -252,3 +252,266 @@ if (a === b) {
 
 32-5 Block Scope Global Scope Simple Understanding Of Hoisting
 1.
+function add(a,b){
+    const first = a;
+    const second = b;
+    const total = first + second;
+    // const total = a+b;
+    if(a>b){
+        const sub = a-b;
+        console.log(sub)
+    }
+    return total;
+}
+// add(10,5);
+console.log(add(10,5));
+// function add(a,b){
+//     return a+b;
+// }
+// console.log(add(5,6));
+
+for(var i =0;i<=5;i++){
+    console.log(i);
+}
+console.log('outside---->here use var',i)
+console.log(`---------------------`)
+
+for(let j =0;j<=3;j++){
+    console.log(j);
+}
+// console.log('outside---->here use let',j)//ReferenceError: j is not defined
+
+/*hoisting:In JavaScript, hoisting refers to the built-in behavior of the language through which declarations of functions, variables, and classes are moved to the top of their scope – all before code execution. In turn, this allows us to use functions, variables, and classes before they are declared
+*/
+
+//https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
+add(3,4);
+let total = add(4,5);
+function add (a,b) {
+    console.log(a+b);
+    // return a+b;
+}
+add(3,4);
+// let total = add(4,5);
+// console.log(total)
+
+console.log(a); //ReferenceError: a is not defined
+var a;
+// a=9
+// var a =9;
+console.log(a)
+var a =9;
+a=9
+
+
+
+
+
+
+32-6 (Advanced) Closure, Encapsulation, Private Variable
+1.
+/*
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time 
+a function is created, at function creation time.
+*/
+
+2.
+function kitchen(){
+    let roast = 0;
+    return function(){
+        roast ++;
+        return roast;
+    }
+}
+
+const firstServer = kitchen();
+console.log(firstServer);
+console.log(firstServer());
+console.log(firstServer());
+console.log(firstServer());
+console.log(firstServer());
+
+3.
+function add(a,b){
+    return a+b;
+}
+const sum = add(22,33);
+console.log(sum)
+// console.log(sum())  //TypeError: sum is not a function
+
+4.
+function makeFunc() {
+    const name = "Mozilla";
+    function displayName() {
+      console.log(name);
+    }
+    return displayName;
+  }
+  
+  const myFunc = makeFunc();
+//   myFunc();
+console.log(myFunc)
+console.log(myFunc())
+
+
+5.
+function makeAdder(x) {
+    return function (y) {
+      return x + y;
+    };
+  }
+  
+  const add5 = makeAdder(5);
+//   const add10 = makeAdder(10);
+  
+  console.log(add5(2)); // 7
+//   console.log(add10(2)); // 12
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+6.
+function stopWatch(){
+    let counter = 0;
+    return function(){
+        counter++;
+        return counter;
+    }
+}
+console.log(stopWatch)
+console.log(stopWatch())
+let stop = stopWatch();
+console.log(stop)
+console.log(stop())
+console.log(stop())
+console.log(stop())
+console.log(stopWatch())
+
+
+
+32-7 (Optional) Callback Function And Pass Different Functions:
+1.
+/*A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete 
+some kind of routine or action.
+*/
+/*
+A callback is a function passed as an argument to another function
+This technique allows a function to call another function
+A callback function can run after another function has finished
+*/
+
+2.
+let value = 1;
+
+// doSomething(() =>
+//     {value = 2;}
+// );
+
+console.log(value);
+
+3.
+function myDisplayer(some) {
+    console.log(some);
+}
+  
+  function myFirst() {
+    myDisplayer("Hello");
+  }
+  
+  function mySecond() {
+    myDisplayer("Goodbye");
+  }
+  
+  myFirst();
+  mySecond();
+
+
+4.
+  function myDisplayer2(some) {
+    console.log(some);
+  }
+  
+  function myFirst2() {
+    myDisplayer2("Hello");
+  }
+  
+  function mySecond2() {
+    myDisplayer2("Goodbye");
+  }
+  
+  mySecond2();
+  myFirst2();
+
+
+5.
+  function myDisplayer3(some) {
+    console.log(some);
+  }
+  
+  function myCalculator(num1, num2) {
+    let sum = num1 + num2;
+    return sum;
+  }
+  
+  let result = myCalculator(55, 65);
+  myDisplayer3(result);
+
+  
+  
+6.
+  console.log(`-------tricky callback function----------`);
+  function myDisplayer4(something) {
+    console.log(something);
+  }
+  function myCalculator2(num1, num2, myCallbackkk) {
+    let sum = num1 + num2;
+    myCallbackkk('tricky callback function',sum);
+  }  
+  myCalculator2(51, 52, myDisplayer4);
+
+  /*
+  In the example above, myDisplayer is a called a callback function.
+  It is passed to myCalculator() as an argument.
+  When you pass a function as an argument, remember not to use parenthesis.
+  */
+
+
+7.
+const myNumbers = [4, 1, -20, -7, 5, 9, -6,-22,33,-44,-77,88,99,0,2];
+const plusNumbr =(x)=>x>=0
+// (x) => x >= 0
+const posNumbers = removeNeg(myNumbers,plusNumbr);
+console.log(posNumbers);
+
+// Remove negative numbers
+function removeNeg(numbers, callback) {
+  const myArray = [];
+  for (const y of numbers) {
+    if (callback(y)) {
+      myArray.push(y);
+    }
+  }
+  return myArray;
+}
+console.log(`-----------callback function---------------`)
+function greeting(grtHandlFunton,name){
+    grtHandlFunton(name)
+}
+
+function greetingHandler(name){
+    console.log('good morning',name);
+}
+function greetEvening(name){
+    console.log('good evening',name);
+}
+
+function greetNight(name){
+    console.log('good night',name)
+}
+
+greeting(greetingHandler)
+greeting(greetingHandler,'sohel')
+greeting(greetingHandler,'sumi')
+greeting(greetEvening,'Aadil')
+greeting(greetNight,'Shahid')
+

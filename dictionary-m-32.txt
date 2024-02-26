@@ -9,3 +9,10 @@ predefined-
 typically-
 Scope-
 Hoisting-
+interpreter-
+appears-
+normatively -
+Closure-
+Encapsulation-
+lexical-
+invoked-
