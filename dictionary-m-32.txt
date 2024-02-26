@@ -1,3 +1,11 @@
 Strive-
 explicit-
 implicit-
+coercion-
+casting-
+conversion-
+immutable-
+predefined-
+typically-
+Scope-
+Hoisting-

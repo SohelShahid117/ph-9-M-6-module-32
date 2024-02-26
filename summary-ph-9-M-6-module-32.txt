@@ -234,3 +234,21 @@ if (x) {
 
 32-4 Double Equal (==) Vs Triple Equal (===), Implicit Conversion:
 1.
+const a = 1;
+// const b = '1';
+const b = true;
+if (a === b) {
+    console.log('bothe r same ')
+}else{
+    console.log('bothe r not same ')
+}
+//== er use cancel,use===
+//type casting or type conversion in js 
+//https://www.geeksforgeeks.org/primitive-and-non-primitive-data-types-in-javascript/
+// https://youtu.be/tLo6g3yEm7o?si=KaoMW3YbY0QY7uko
+
+
+
+
+32-5 Block Scope Global Scope Simple Understanding Of Hoisting
+1.
